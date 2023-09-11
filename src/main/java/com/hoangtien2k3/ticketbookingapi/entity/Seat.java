@@ -1,7 +1,7 @@
 package com.hoangtien2k3.ticketbookingapi.entity;
 
 import com.hoangtien2k3.ticketbookingapi.model.ResponseSeat;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

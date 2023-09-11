@@ -2,11 +2,11 @@ package com.hoangtien2k3.ticketbookingapi.repository;
 
 import com.hoangtien2k3.ticketbookingapi.entity.User;
 import com.hoangtien2k3.ticketbookingapi.model.UserNameProfile;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
@@ -15,7 +15,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     UserNameProfile getUserById(Integer user_id);
 
     // thêm user vào dữ liệu
-    @Transactional  // bảo đảm tính nhất quán khi sửa đổi CSDL (nếu lỗi thì sẽ rollback và dữ liệu trong CSDL sẽ không bị ảnh hưởng)
+    @Transactional
+    // bảo đảm tính nhất quán khi sửa đổi CSDL (nếu lỗi thì sẽ rollback và dữ liệu trong CSDL sẽ không bị ảnh hưởng)
     @Modifying      // thực hiện hành động sử đổi dữ liệu trong CSDL
     @Query(value = "INSERT INTO 'users'(`username`, `password`, `user_avatar`, `user_fullname`, `user_birthday`, `user_gender`, `user_email`, `user_city`, `user_phone`, `user_point`) " +
             "VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, 0)",

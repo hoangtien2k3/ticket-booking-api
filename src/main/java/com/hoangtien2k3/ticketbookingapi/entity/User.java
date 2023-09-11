@@ -1,11 +1,12 @@
 package com.hoangtien2k3.ticketbookingapi.entity;
 
 import com.hoangtien2k3.ticketbookingapi.model.UserNameProfile;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 
 // ánh xạ kết quả của câu truy vấn SQL vào các đối tượng Java hay vào lớp `UserNameProfile`
 @SqlResultSetMappings({

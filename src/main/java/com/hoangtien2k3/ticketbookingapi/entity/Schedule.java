@@ -4,7 +4,7 @@ import com.hoangtien2k3.ticketbookingapi.model.ResponseCinema;
 import com.hoangtien2k3.ticketbookingapi.model.ResponseFormat;
 import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleCinema;
 import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleTime;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
