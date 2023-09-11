@@ -1,1 +1,1 @@
-# ticket-booking-api
+# Rest API to Book movie tickets
