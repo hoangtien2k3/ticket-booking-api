@@ -8,6 +8,7 @@ class TicketBookingApiApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

@@ -1,9 +1,9 @@
 package com.hoangtien2k3.ticketbookingapi.repository;
 
 import com.hoangtien2k3.ticketbookingapi.entity.Schedule;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseCinema;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleCinema;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleTime;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseCinema;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseScheduleCinema;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseScheduleTime;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

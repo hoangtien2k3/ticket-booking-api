@@ -1,6 +1,6 @@
 package com.hoangtien2k3.ticketbookingapi.entity;
 
-import com.hoangtien2k3.ticketbookingapi.model.UserNameProfile;
+import com.hoangtien2k3.ticketbookingapi.dao.UserNameProfile;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,11 +40,8 @@ import javax.persistence.*;
         user_id = ?1
 */
 @NamedNativeQuery(name = "getUserNameProfile", resultSetMapping = "UserNameProfile",
-        query = "SELECT 'user_id', 'username', `user_avatar`, 'user_fullname', DATE_FORMAT(STR_TO_DATE(`user_birthday`, \"%Y-%m-%d\"), \"%d/%m/%Y\") as `user_birthday`, " +
-                "'user_gender', 'user_email', 'user_city', 'user_phone', 'user_point' " +
-                "FROM 'users' " +
-                "WHERE 'user_id' = ?1"
-)
+        query = "SELECT `user_id`,`username`,`user_avatar`,`user_fullname`,DATE_FORMAT(`user_birthday`, \"%d/%m/%Y\") as `user_birthday`,`user_gender`,`user_email`,`user_city`,`user_phone`,`user_point` FROM `users` WHERE `user_id` = ?1")
+
 
 @Setter
 @Getter
@@ -66,7 +63,7 @@ public class User {
     @Column(name = "user_fullname")
     private String userFullname;
     @Column(name = "user_birthday")
-    private String userBirthDay;
+    private String userBirthday;
     @Column(name = "user_gender")
     private int userGender;
     @Column(name = "user_email")

@@ -1,7 +1,7 @@
 package com.hoangtien2k3.ticketbookingapi.service;
 
 import com.hoangtien2k3.ticketbookingapi.entity.Movie;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseData;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseData;
 import com.hoangtien2k3.ticketbookingapi.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

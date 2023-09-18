@@ -4,7 +4,7 @@ import com.hoangtien2k3.ticketbookingapi.repository.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseData;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseData;
 
 
 @Service

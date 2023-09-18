@@ -1,4 +1,4 @@
-package com.hoangtien2k3.ticketbookingapi.model;
+package com.hoangtien2k3.ticketbookingapi.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

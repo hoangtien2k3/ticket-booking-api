@@ -2,8 +2,8 @@ package com.hoangtien2k3.ticketbookingapi.service;
 
 import com.hoangtien2k3.ticketbookingapi.config.JwtToken;
 import com.hoangtien2k3.ticketbookingapi.entity.User;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseData;
-import com.hoangtien2k3.ticketbookingapi.model.UserNameProfile;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseData;
+import com.hoangtien2k3.ticketbookingapi.dao.UserNameProfile;
 import com.hoangtien2k3.ticketbookingapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,13 +44,12 @@ public class UserService {
 
         String avatar;
         if (user.getUserGender() == 1) {
-            avatar = "http://hoangtien2k3.tk/src/bookingticket/img/male.jpg";
+            avatar = "http://hoangtien2k3.booingticket/src/bookingticket/img/male.jpg";
         } else {
-            avatar = "http://hoangtien2k3.tk/src/bookingticket/img/female.jpg";
+            avatar = "http://hoangtien2k3.booingticket/src/bookingticket/img/female.jpg";
         }
 
-        Integer rs = userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthDay(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone());
-        return new ResponseData(HttpStatus.OK, "successfully", rs);
+        return new ResponseData(HttpStatus.OK, "success", userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthday(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone()));
     }
 
     public ResponseData<String> loginUser(String username, String password) {
@@ -81,7 +80,6 @@ public class UserService {
         );
 
         return new ResponseData(HttpStatus.OK, "successfully", rs);
-
     }
 
     public ResponseData<User> getInfo(Authentication authentication) {

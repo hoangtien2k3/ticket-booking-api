@@ -1,7 +1,7 @@
 package com.hoangtien2k3.ticketbookingapi.repository;
 
 import com.hoangtien2k3.ticketbookingapi.entity.Seat;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseSeat;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseSeat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -1,7 +1,7 @@
 package com.hoangtien2k3.ticketbookingapi.service;
 
 import com.hoangtien2k3.ticketbookingapi.entity.Book;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseData;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseData;
 import com.hoangtien2k3.ticketbookingapi.repository.BookRepository;
 import com.hoangtien2k3.ticketbookingapi.repository.UserRepository;
 import com.hoangtien2k3.ticketbookingapi.request.BookRequest;

@@ -1,4 +1,4 @@
-package com.hoangtien2k3.ticketbookingapi.model;
+package com.hoangtien2k3.ticketbookingapi.dao;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;

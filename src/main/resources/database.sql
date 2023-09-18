@@ -16,16 +16,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
 -- Database: `data`
---
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `booking`
---
-
 CREATE TABLE `booking` (
   `booking_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -37,35 +32,27 @@ CREATE TABLE `booking` (
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `cinemas`
---
-
 CREATE TABLE `cinemas` (
   `cinema_id` int(11) NOT NULL,
   `cinema_name` text COLLATE utf8mb4_vietnamese_ci,
   `cinema_address` text COLLATE utf8mb4_vietnamese_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
--- Dumping data for table `cinemas`
---
 
+-- Dumping data for table `cinemas`
 INSERT INTO `cinemas` (`cinema_id`, `cinema_name`, `cinema_address`) VALUES
 (1, 'Beta Mỹ Đình', 'Hà Nội'),
 (2, 'Beta Thanh Xuân', 'Hà Nội'),
 (3, 'Beta Đan Phượng', 'Hà Nội'),
 (4, 'Beta Thái Nguyên', 'Thái Nguyên'),
-(5, 'Beta Biên Hòa', 'Đồng Nai'),
+(5, 'Beta Hà Đông', 'Đồng Nai'),
 (6, 'Beta Long Khánh', 'Đồng Nai'),
 (7, 'Beta Long Thành', 'Đồng Nai');
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `movies`
---
-
 CREATE TABLE `movies` (
   `movie_id` int(11) NOT NULL,
   `movie_name` text CHARACTER SET utf8,
@@ -79,10 +66,8 @@ CREATE TABLE `movies` (
   `movie_poster` text COLLATE utf8mb4_vietnamese_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
--- Dumping data for table `movies`
---
 
+-- Dumping data for table `movies`
 INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_description`, `movie_trailer`, `movie_cens`, `movie_genres`, `movie_release`, `movie_lenght`, `movie_format`, `movie_poster`) VALUES
 (1, 'FROZEN 2-NỮ HOÀNG BĂNG GIÁ 2', 'Frozen lấy cảm hứng từ câu chuyện Nữ Hoàng Tuyết được nhà văn Andersen chắp bút nhưng nội dung hoàn toàn khác so với tác phẩm gốc. Phim tạo nên cơn sốt hơn 1,2 tỷ $ trên toàn thế giới vào năm 2013. Sau 6 năm, bộ phim ra mắt phần 2 trong sự chờ đợi tột cùng của khán giả.\r\n\r\nElsa, Anna, Kristoff và Olaf đi sâu vào rừng để tìm hiểu sự thật về bí ẩn xảy ra nơi vương quốc của họ. Đó là khu rừng thần bí mà hoàng hậu đã từng kể cho hai nàng công chúa khi còn nhỏ. Liệu điều này có liên quan gì đến sức mạnh của Elsa. Điều gì đang chờ đợi họ khi vén màn sự thật?', 'https://www.youtube.com/watch?v=C70I39Pqlhs', 'P', 'Hài, Hoạt Hình, Phiêu Lưu', '2019-11-20', '01:45:00', '2D', 'https://m.media-amazon.com/images/M/MV5BMjA0YjYyZGMtN2U0Ni00YmY4LWJkZTItYTMyMjY3NGYyMTJkXkEyXkFqcGdeQXVyNDg4NjY5OTQ@._V1_UX182_CR0,0,182,268_AL_.jpg'),
 (2, 'ANH TRAI YÊU QUÁI', 'Lâm là một vận động viên Judo quốc gia bỗng chốc phải bỏ dở sự nghiệp vì gặp chấn thương mất đi thị giác. Phong - người anh cùng cha khác mẹ đang ở trong tù - ngay lập tức lợi dụng bi kịch của em trai để xin được ân xá về nhà chăm sóc em. Chưa thể chấp nhận sự thật mình sẽ bị mù vĩnh viễn, Lâm càng phát điên khi ông anh 10 năm không gặp bỗng dưng trở về, mang theo toàn phiền toái. Cuộc đoàn tụ không mong muốn đẩy hai anh em Phong và Lâm vào những tình huống bi hài, khi vừa phải chịu đựng tật xấu của nhau, vừa tìm cách giải quyết những mâu thuẫn trong quá khứ.', 'https://www.youtube.com/watch?v=jRhw9v2MEjQ', 'C13', 'Hài, Tình Cảm', '2019-11-29', '01:49:00', '2D', 'https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/f/b/fb_mainposter_atyq_1_.jpg'),
@@ -94,20 +79,15 @@ INSERT INTO `movies` (`movie_id`, `movie_name`, `movie_description`, `movie_trai
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `room`
---
-
 CREATE TABLE `room` (
   `room_id` int(11) NOT NULL,
   `cinema_id` int(11) DEFAULT NULL,
   `room_name` text COLLATE utf8mb4_vietnamese_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
--- Dumping data for table `room`
---
 
+-- Dumping data for table `room`
 INSERT INTO `room` (`room_id`, `cinema_id`, `room_name`) VALUES
 (1, 1, 'ROOM 1'),
 (2, 1, 'ROOM 2'),
@@ -147,10 +127,7 @@ INSERT INTO `room` (`room_id`, `cinema_id`, `room_name`) VALUES
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `schedule`
---
-
 CREATE TABLE `schedule` (
   `schedule_id` int(11) NOT NULL,
   `movie_id` int(11) DEFAULT NULL,
@@ -160,27 +137,21 @@ CREATE TABLE `schedule` (
   `schedule_end` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
 -- Dumping data for table `schedule`
---
-
 INSERT INTO `schedule` (`schedule_id`, `movie_id`, `room_id`, `schedule_date`, `schedule_start`, `schedule_end`) VALUES
-(1, 1, 1, '2019-11-20', '17:15:00', '19:00:00'),
-(2, 2, 2, '2019-12-01', '13:00:00', '14:30:00'),
-(3, 1, 5, '2019-11-20', '17:15:00', '19:00:00'),
-(4, 1, 10, '2019-11-20', '17:15:00', '19:00:00'),
-(5, 1, 12, '2019-11-20', '17:15:00', '19:00:00'),
-(6, 1, 15, '2019-11-20', '17:15:00', '19:00:00'),
-(7, 1, 20, '2019-11-20', '17:15:00', '19:00:00'),
-(8, 1, 25, '2019-11-20', '17:15:00', '19:00:00'),
-(9, 1, 30, '2019-11-20', '14:15:00', '16:00:00');
+(1, 1, 1, '2023-11-20', '17:15:00', '19:00:00'),
+(2, 2, 2, '2023-12-01', '13:00:00', '14:30:00'),
+(3, 1, 5, '2023-11-20', '17:15:00', '19:00:00'),
+(4, 1, 10, '2023-11-20', '17:15:00', '19:00:00'),
+(5, 1, 12, '2023-11-20', '17:15:00', '19:00:00'),
+(6, 1, 15, '2023-11-20', '17:15:00', '19:00:00'),
+(7, 1, 20, '2023-11-20', '17:15:00', '19:00:00'),
+(8, 1, 25, '2023-11-20', '17:15:00', '19:00:00'),
+(9, 1, 30, '2023-11-20', '14:15:00', '16:00:00');
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `seats`
---
-
 CREATE TABLE `seats` (
   `seat_id` int(11) NOT NULL,
   `seat_type` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
@@ -189,10 +160,7 @@ CREATE TABLE `seats` (
   `seat_number` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
 -- Dumping data for table `seats`
---
-
 INSERT INTO `seats` (`seat_id`, `seat_type`, `room_id`, `seat_row`, `seat_number`) VALUES
 (1, 'Thường', 1, 'A', 1),
 (2, 'Thường', 1, 'A', 2),
@@ -3348,10 +3316,7 @@ INSERT INTO `seats` (`seat_id`, `seat_type`, `room_id`, `seat_row`, `seat_number
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `users`
---
-
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` text COLLATE utf8mb4_vietnamese_ci,
@@ -3366,149 +3331,119 @@ CREATE TABLE `users` (
   `user_point` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
---
+
 -- Dumping data for table `users`
---
-
 INSERT INTO `users` (`user_id`, `username`, `password`, `user_avatar`, `user_fullname`, `user_birthday`, `user_gender`, `user_email`, `user_city`, `user_phone`, `user_point`) VALUES
-(1, 'nguyenvantrung', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Nguyễn Văn Trung', '1997-05-05', 1, 'nguyenvantrung@gmail.com', 0, '012345678', 0),
-(2, 'trancongtung', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Trần Công Tùng', '1997-01-01', 1, 'trancongtung@gmail.com', 0, '012345678', 0),
-(3, 'lengocanh', '123456', 'http://lathanhhanh.tk/src/beta/img/gai.jpg', 'Lê Ngọc Ánh', '1997-01-01', 0, 'lengocanh@gmail.com', 0, '012345678', 0),
-(4, 'nguyengiangchuong', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Nguyễn Giang Chương', '1997-01-01', 1, 'nguyengiangchuong@gmail.com', 0, '012345678', 0),
-(5, 'nguyenthibinh', '123456', 'http://lathanhhanh.tk/src/beta/img/gai.jpg', 'Nguyễn Thị Bình', '1997-01-01', 0, 'nguyenthibinh@gmail.com', 0, '012345678', 0),
-(6, 'phamtrungkien', '123456', 'http://lathanhhanh.tk/src/beta/img/gai.jpg', 'Phạm Trung Kiên', '1997-01-01', 0, 'phamtrungkien@gmail.com', 0, '012345678', 0),
-(7, 'ngothikimnhung', '123456', 'http://lathanhhanh.tk/src/beta/img/gai.jpg', 'Ngô Thị Kim Nhung', '1997-01-01', 0, 'ngothikimnhung@gmail.com', 0, '012345678', 0),
-(8, 'nguyenminhduc', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Nguyễn Minh Đức', '1997-01-01', 1, 'nguyenminhduc@gmail.com', 0, '012345678', 0),
-(9, 'haquangminh', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Hạ Quang Minh', '1997-01-01', 1, 'haquangminh@gmail.com', 0, '012345678', 0),
-(10, 'thanhhanh', '123456', 'http://lathanhhanh.tk/src/beta/img/trai.jpg', 'Thanh Hanh', '1997-01-01', 1, 'thanhhanh@gmail.com', 0, '012345678', 0);
+(1, 'hoantien2k3', '123456', 'http://hoangtien2k3.bookingticket/src/ticketbookingapi/img/trai.jpg', 'Hoàng Anh Tiến', '2003-05-05', 1, 'hoangtien2k3@gmail.com', 0, '012345678', 0),
+(2, 'hoangtien2k3qx1', '123456', 'http://lathanhhanh.bookingticket/src/ticketbookingapi/img/trai.jpg', 'Tiền Anh Hoáng', '2003-01-01', 1, 'hoangtien2k3qx1@gmail.com', 0, '012345678', 0),
+(3, 'hoangtien', '123456', 'http://lathanhhanh.bookingticket/src/ticketbookingapi/img/gai.jpg', 'Tiến Tiến Tiến', '2003-01-01', 0, 'tientientien@gmail.com', 0, '012345678', 0),
+(4, 'tiedepzai', '123456', 'http://lathanhhanh.bookingticket/src/ticketbookingapi/img/trai.jpg', 'Tiến Hoàng Anh', '2003-01-01', 1, 'tienhoanganh@gmail.com', 0, '012345678', 0),
+(5, 'tientientien', '123456', 'http://lathanhhanh.bookingticket/src/ticketbookingapi/img/gai.jpg', 'Hoàng Hoàng Tiến', '2003-01-01', 0, 'hoanghoangtien2k3@gmail.com', 0, '012345678', 0),
+(6, 'hoanghoangtien', '123456', 'http://lathanhhanh.bookingticket/src/ticketbookingapi/img/gai.jpg', 'Tien Dep Zai', '2003-01-01', 0, 'tiendepzai@gmail.com', 0, '012345678', 0);
 
---
--- Indexes for dumped tables
---
 
---
 -- Indexes for table `booking`
---
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`booking_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `schedule_id` (`schedule_id`),
   ADD KEY `seat_id` (`seat_id`);
 
---
+
 -- Indexes for table `cinemas`
---
 ALTER TABLE `cinemas`
   ADD PRIMARY KEY (`cinema_id`);
 
---
+
 -- Indexes for table `movies`
---
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movie_id`);
 
---
+
 -- Indexes for table `room`
---
 ALTER TABLE `room`
   ADD PRIMARY KEY (`room_id`),
   ADD KEY `cinema_id` (`cinema_id`);
 
---
+
 -- Indexes for table `schedule`
---
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`schedule_id`),
   ADD KEY `movie_id` (`movie_id`),
   ADD KEY `room_id` (`room_id`);
 
---
+
 -- Indexes for table `seats`
---
 ALTER TABLE `seats`
   ADD PRIMARY KEY (`seat_id`),
   ADD KEY `room_id` (`room_id`);
 
 --
 -- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
+-- AUTO_INCREMENT for dumped tables
+
+
 -- AUTO_INCREMENT for table `booking`
---
 ALTER TABLE `booking`
   MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
 
---
+
 -- AUTO_INCREMENT for table `cinemas`
---
 ALTER TABLE `cinemas`
   MODIFY `cinema_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `movies`
---
 ALTER TABLE `movies`
   MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
+
 -- AUTO_INCREMENT for table `room`
---
 ALTER TABLE `room`
   MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
---
+
 -- AUTO_INCREMENT for table `schedule`
---
 ALTER TABLE `schedule`
   MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
+
 -- AUTO_INCREMENT for table `seats`
---
 ALTER TABLE `seats`
   MODIFY `seat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3151;
 
---
+
 -- AUTO_INCREMENT for table `users`
---
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- Constraints for dumped tables
---
 
---
+-- Constraints for dumped tables
+
+
 -- Constraints for table `booking`
---
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`),
   ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`seat_id`) REFERENCES `seats` (`seat_id`);
 
---
+
 -- Constraints for table `room`
---
 ALTER TABLE `room`
   ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`cinema_id`) REFERENCES `cinemas` (`cinema_id`);
 
---
+
 -- Constraints for table `schedule`
---
 ALTER TABLE `schedule`
   ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`),
   ADD CONSTRAINT `schedule_ibfk_2` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`);
 
---
+
 -- Constraints for table `seats`
---
 ALTER TABLE `seats`
   ADD CONSTRAINT `seats_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`);
 COMMIT;

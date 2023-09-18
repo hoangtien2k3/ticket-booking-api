@@ -1,9 +1,9 @@
 package com.hoangtien2k3.ticketbookingapi.entity;
 
-import com.hoangtien2k3.ticketbookingapi.model.ResponseCinema;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseFormat;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleCinema;
-import com.hoangtien2k3.ticketbookingapi.model.ResponseScheduleTime;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseCinema;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseFormat;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseScheduleCinema;
+import com.hoangtien2k3.ticketbookingapi.dao.ResponseScheduleTime;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -178,19 +178,14 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "schedule_id")
     private int scheduleId;
-
     @Column(name = "movie_id")
     private int movieId;
-
     @Column(name = "room_id")
     private int roomId;
-
     @Column(name = "schedule_date")
     private String scheduleDate;
-
     @Column(name = "schedule_start")
     private String scheduleStart;
-
     @Column(name = "schedule_end")
     private String scheduleEnd;
 }
