@@ -44,9 +44,9 @@ public class UserService {
 
         String avatar;
         if (user.getUserGender() == 1) {
-            avatar = "http://hoangtien2k3.booingticket/src/bookingticket/img/male.jpg";
+            avatar = "https://github.com/hoangtien2k3qx1/ticket-booking-api/blob/master/image/male.png";
         } else {
-            avatar = "http://hoangtien2k3.booingticket/src/bookingticket/img/female.jpg";
+            avatar = "https://github.com/hoangtien2k3qx1/ticket-booking-api/blob/master/image/female.png";
         }
 
         return new ResponseData(HttpStatus.OK, "success", userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthday(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone()));
@@ -54,9 +54,7 @@ public class UserService {
 
     public ResponseData<String> loginUser(String username, String password) {
 
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(username, password)
-        );
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

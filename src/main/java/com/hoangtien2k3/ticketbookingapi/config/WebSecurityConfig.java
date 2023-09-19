@@ -66,8 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/movies/future",
                         "/schedule/**",
                         "/user/register",
-                        "/user/login",
-                        "/book/create"
+                        "/user/login"
                 ).permitAll()
                 // config swagger
                 .antMatchers("/v2/api-docs",

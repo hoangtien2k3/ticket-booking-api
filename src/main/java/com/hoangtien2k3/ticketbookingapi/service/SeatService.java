@@ -12,10 +12,10 @@ public class SeatService {
     @Autowired
     private SeatRepository seatRepository;
 
-    public ResponseData<Integer> getSeatEmpty(Integer schedule_id){
-        if(seatRepository.getSeatEmptyBySchedule(schedule_id).isEmpty()){
+    public ResponseData<Integer> getSeatEmpty(Integer schedule_id) {
+        if (seatRepository.getSeatEmptyBySchedule(schedule_id).isEmpty()) {
             return new ResponseData(HttpStatus.NOT_FOUND, "failed", null);
-        }else{
+        } else {
             return new ResponseData(HttpStatus.OK, "successfully", seatRepository.getSeatEmptyBySchedule(schedule_id));
         }
     }

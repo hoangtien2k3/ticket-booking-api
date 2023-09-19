@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResponseData<T> {
-    private HttpStatus status;
-    private String msg;
-    private T data;
+    private HttpStatus status; // HTTP status
+    private String msg; // message
+    private T data; // data
 }

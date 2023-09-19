@@ -35,7 +35,7 @@ public class BookService {
         Double point = userRepository.getPoint(userId);
         userRepository.addPoint(point + 10, userId);
 
-        return new ResponseData(HttpStatus.OK, "book running", bookRepository.updateStatus(userId, book_id));
+        return new ResponseData(HttpStatus.OK, "book comfirm successfully", bookRepository.updateStatus(userId, book_id));
     }
 
 }
