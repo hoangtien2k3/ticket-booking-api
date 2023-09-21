@@ -55,12 +55,10 @@ public class UserService {
     public ResponseData<String> loginUser(String username, String password) {
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
         String jwt = token.generateToken((UserDetails) authentication.getPrincipal());
-
         return new ResponseData(HttpStatus.OK, "successfully", jwt);
+
     }
 
     public ResponseData<String> updateUser(Authentication authentication, UserNameProfile userNameProfile) {
