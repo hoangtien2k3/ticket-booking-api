@@ -23,7 +23,7 @@ public class ScheduleService {
     public ResponseData<ResponseScheduleCinema> getScheduleCinema(Integer movie_id, String schedule_date) {
         List<ResponseScheduleCinema> rs = scheduleRepository.getSchedule(movie_id, schedule_date);
         if (CollectionUtils.isEmpty(rs)) {  // CollectionUtils.isEmpty(rs): kiếm tra cả null lẫn empty
-            return new ResponseData(HttpStatus.NOT_FOUND,"Not found schedule", null);
+            return new ResponseData<>(HttpStatus.NOT_FOUND,"Not found schedule", null);
         } else {
             return new ResponseData(HttpStatus.OK,"successfully", scheduleRepository.getSchedule(movie_id, schedule_date));
         }

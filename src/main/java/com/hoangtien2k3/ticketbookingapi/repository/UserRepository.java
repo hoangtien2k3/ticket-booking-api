@@ -14,11 +14,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // lấy thông tin user bằng id
     @Query(name = "getUserNameProfile", nativeQuery = true)
     UserNameProfile getUserById(Integer user_id);
+
     //Thêm user vào dữ liệu ;
     @Transactional
     @Modifying
     @Query(value = "INSERT INTO `users`( `username`, `password`, `user_avatar`, `user_fullname`, `user_birthday`, `user_gender`, `user_email`, `user_city`, `user_phone`, `user_point`) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,0)", nativeQuery = true)
     Integer registerUser(String username, String password, String user_avatar, String user_fullname, String user_birthday, Integer user_gender, String user_email, String user_city, String user_phone);
+
     //update
     @Transactional
     @Modifying

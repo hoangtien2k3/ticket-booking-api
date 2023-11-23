@@ -23,7 +23,7 @@ public class MovieService {
     public ResponseData<Movie> getMoviesNow(){
         List<Movie> rs = movieRepository.getMoviesNow();
         if(CollectionUtils.isEmpty(rs)){
-            return new ResponseData(HttpStatus.NOT_FOUND, "failed", null);
+            return new ResponseData<>(HttpStatus.NOT_FOUND, "failed", null);
         }else{
             return new ResponseData(HttpStatus.OK, "successfully", rs);
         }
@@ -33,7 +33,7 @@ public class MovieService {
     public ResponseData<Movie> getMoviesFuture(){
         List<Movie> rs = movieRepository.getMoviesFuture();
         if(CollectionUtils.isEmpty(rs)){
-            return new ResponseData(HttpStatus.NOT_FOUND, "failed", null);
+            return new ResponseData<>(HttpStatus.NOT_FOUND, "failed", null);
         }else{
             return new ResponseData(HttpStatus.OK, "successfully", rs);
         }

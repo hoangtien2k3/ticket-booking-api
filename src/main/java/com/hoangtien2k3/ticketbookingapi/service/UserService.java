@@ -33,13 +33,13 @@ public class UserService {
 
     public ResponseData<Integer> registerUser(@RequestBody User user) {
         if (userRepository.findByUsername(user.getUsername()) != null) {
-            return new ResponseData(HttpStatus.OK, "Register failed, user existed", 0);
+            return new ResponseData<>(HttpStatus.OK, "Register failed, user existed", 0);
         }
         if (userRepository.findByUsername(user.getUserEmail()) != null) {
-            return new ResponseData(HttpStatus.OK, "Register failed, email existed", 0);
+            return new ResponseData<>(HttpStatus.OK, "Register failed, email existed", 0);
         }
         if (userRepository.findByUsername(user.getUserPhone()) != null) {
-            return new ResponseData(HttpStatus.OK, "Register failed, phone existed", 0);
+            return new ResponseData<>(HttpStatus.OK, "Register failed, phone existed", 0);
         }
 
         String avatar;
@@ -49,7 +49,7 @@ public class UserService {
             avatar = "https://github.com/hoangtien2k3qx1/ticket-booking-api/blob/master/image/female.png";
         }
 
-        return new ResponseData(HttpStatus.OK, "success", userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthday(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone()));
+        return new ResponseData<>(HttpStatus.OK, "success", userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthday(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone()));
     }
 
     public ResponseData<String> loginUser(String username, String password) {
@@ -57,7 +57,7 @@ public class UserService {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = token.generateToken((UserDetails) authentication.getPrincipal());
-        return new ResponseData(HttpStatus.OK, "successfully", jwt);
+        return new ResponseData<>(HttpStatus.OK, "successfully", jwt);
 
     }
 
@@ -79,7 +79,7 @@ public class UserService {
     }
 
     public ResponseData<User> getInfo(Authentication authentication) {
-        return new ResponseData(HttpStatus.OK, "successfully", userRepository.findByUsername(authentication.getName()));
+        return new ResponseData<>(HttpStatus.OK, "successfully", userRepository.findByUsername(authentication.getName()));
     }
 
 }

@@ -14,7 +14,7 @@ public class SeatService {
 
     public ResponseData<Integer> getSeatEmpty(Integer schedule_id) {
         if (seatRepository.getSeatEmptyBySchedule(schedule_id).isEmpty()) {
-            return new ResponseData(HttpStatus.NOT_FOUND, "failed", null);
+            return new ResponseData<>(HttpStatus.NOT_FOUND, "failed", null);
         } else {
             return new ResponseData(HttpStatus.OK, "successfully", seatRepository.getSeatEmptyBySchedule(schedule_id));
         }
