@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import com.hoangtien2k3.ticketbookingapi.dao.ResponseData;
 
-
 @Service
 public class SeatService {
     @Autowired

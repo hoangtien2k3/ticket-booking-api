@@ -13,6 +13,10 @@ public class CinemaService {
     private CinemaRepository cinemaRepository;
 
     public ResponseData<Cinema> getCinemaByScheduleId(Integer schedule_id){
-        return new ResponseData(HttpStatus.OK, "successfully", cinemaRepository.getCinemasByIdSchedule(schedule_id));
+        return new ResponseData<>(
+                HttpStatus.OK,
+                "successfully",
+                cinemaRepository.getCinemasByIdSchedule(schedule_id)
+        );
     }
 }

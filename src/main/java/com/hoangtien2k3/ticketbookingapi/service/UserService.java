@@ -49,7 +49,19 @@ public class UserService {
             avatar = "https://github.com/hoangtien2k3qx1/ticket-booking-api/blob/master/image/female.png";
         }
 
-        return new ResponseData<>(HttpStatus.OK, "success", userRepository.registerUser(user.getUsername(), passwordEncoder.encode(user.getPassword()), avatar, user.getUserFullname(), user.getUserBirthday(), user.getUserGender(), user.getUserEmail(), user.getUserCity(), user.getUserPhone()));
+        return new ResponseData<>(HttpStatus.OK,
+                "success",
+                userRepository.registerUser(
+                        user.getUsername(),
+                        passwordEncoder.encode(user.getPassword()),
+                        avatar,
+                        user.getUserFullname(),
+                        user.getUserBirthday(),
+                        user.getUserGender(),
+                        user.getUserEmail(),
+                        user.getUserCity(),
+                        user.getUserPhone())
+        );
     }
 
     public ResponseData<String> loginUser(String username, String password) {

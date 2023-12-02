@@ -15,6 +15,10 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
+    public MovieService(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
     public ResponseData<Movie> getAllMovie(){
         return new ResponseData(HttpStatus.OK, "success", movieRepository.findAll());
     }

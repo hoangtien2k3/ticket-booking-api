@@ -14,11 +14,13 @@ import lombok.Setter;
 @Table(name = "cinemas")
 public class Cinema {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cinema_id")
     private int cinemaId;
+
     @Column(name = "cinema_name")
     private String cinemaName;
+
     @Column(name = "cinema_address")
     private String cinemaAddress;
 }

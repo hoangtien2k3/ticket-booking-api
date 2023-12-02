@@ -48,7 +48,6 @@ public class JwtToken implements Serializable {
         final Date expiration = getExpirationDateFromToken(token);
 
         return expiration.before(new Date());
-
     }
 
     private Date getExpirationDateFromToken(String token) {
@@ -60,9 +59,7 @@ public class JwtToken implements Serializable {
         return doGenerateToken(claims, userDetails.getUsername());
     }
 
-
     private String doGenerateToken(Map<String, Object> claims, String subject) {
-
         return Jwts
                 .builder()
                 .setClaims(claims)
@@ -70,15 +67,11 @@ public class JwtToken implements Serializable {
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret).compact();
-
     }
 
-
     public Boolean validateToken(String token, UserDetails userDetails) {
-
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
-
     }
 
 }

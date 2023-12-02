@@ -175,17 +175,22 @@ import lombok.Setter;
 @Table(name = "schedule")
 public class Schedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id")
     private int scheduleId;
+
     @Column(name = "movie_id")
     private int movieId;
+
     @Column(name = "room_id")
     private int roomId;
+
     @Column(name = "schedule_date")
     private String scheduleDate;
+
     @Column(name = "schedule_start")
     private String scheduleStart;
+
     @Column(name = "schedule_end")
     private String scheduleEnd;
 }

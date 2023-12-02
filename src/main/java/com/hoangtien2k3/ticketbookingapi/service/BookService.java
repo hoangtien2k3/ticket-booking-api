@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -22,7 +24,7 @@ public class BookService {
     public ResponseData<Book> bookTicket(Authentication authentication, BookRequest bookRequest){
         Integer userId = userRepository.findIdByUsername(authentication.getName());
         if(bookRequest == null){
-            return new ResponseData(HttpStatus.FOUND, "booking ticket failed", null);
+            return new ResponseData<>(HttpStatus.FOUND, "booking ticket failed", null);
         }else{
             Integer rs = bookRepository.bookTicket(userId, bookRequest.getScheduleId(), bookRequest.getSeatId(), bookRequest.getPrice(), bookRequest.getSeatStatus());
             return new ResponseData(HttpStatus.OK, "successfully", rs);
@@ -35,7 +37,7 @@ public class BookService {
         Double point = userRepository.getPoint(userId);
         userRepository.addPoint(point + 10, userId);
 
-        return new ResponseData(HttpStatus.OK, "book comfirm successfully", bookRepository.updateStatus(userId, book_id));
+        return new ResponseData<>(HttpStatus.OK, "book comfirm successfully", bookRepository.updateStatus(userId, book_id));
     }
 
 }

@@ -35,15 +35,19 @@ import lombok.Setter;
 @Table(name = "seats")
 public class Seat {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "seat_id")
     private int seatId;
+
     @Column(name = "seat_type")
     private int seatType;
+
     @Column(name = "room_id")
     private int roomId;
+
     @Column(name = "seat_row")
     private String seatRow;
+
     @Column(name = "seat_number")
     private int seatNumber;
 }

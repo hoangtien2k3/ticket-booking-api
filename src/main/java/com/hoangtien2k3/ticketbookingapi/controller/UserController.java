@@ -39,8 +39,10 @@ public class UserController {
         return ResponseEntity.ok(userService.loginUser(request.get("username"), request.get("password")));
     }
 
+    // get info from token
     @GetMapping("/info")
     public ResponseEntity<?> getInfo(Authentication authentication){
         return ResponseEntity.ok(userService.getInfo(authentication));
     }
+
 }

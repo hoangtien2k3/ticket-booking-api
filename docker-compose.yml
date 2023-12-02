@@ -27,7 +27,3 @@ services:
     entrypoint: [ "java", "-jar", "ticket-booking-api-0.0.1-SNAPSHOT.jar" ]
     depends_on:
       - mysql
-    build:
-      context: .
-      args:
-        PROJECT_VERSION: 0.0.1

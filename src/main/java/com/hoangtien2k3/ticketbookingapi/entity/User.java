@@ -51,25 +51,34 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private int userId;
-    @Column(name = "username")
+
+    @Column(name = "username", unique = true)
     private String username;
-    @Column(name = "password")
+
+    @Column(name = "password", length = 6)
     private String password;
+
     @Column(name = "user_avatar")
     private String userAvatar;
+
     @Column(name = "user_fullname")
     private String userFullname;
+
     @Column(name = "user_birthday")
     private String userBirthday;
+
     @Column(name = "user_gender")
     private int userGender;
-    @Column(name = "user_email")
+
+    @Column(name = "user_email", unique = true, nullable = false)
     private String userEmail;
-    @Column(name = "user_phone")
+
+    @Column(name = "user_phone", unique = true, length = 10)
     private String userPhone;
+
     @Column(name = "user_city")
     private String userCity;
 }
