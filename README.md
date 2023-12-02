@@ -77,6 +77,8 @@
 ## Start docker:
 <img width="1440" alt="image" src="https://github.com/hoangtien2k3qx1/ticket-booking-api/assets/122768076/e5170684-36ad-447e-a5b9-ccc8a04f5213">
 
+## Deploy on ngrok:
+<img width="1440" alt="image" src="https://github.com/hoangtien2k3qx1/ticket-booking-api/assets/122768076/65cfbced-a0fd-4f52-ac0f-0a25343f1ea6">
 
 
 
