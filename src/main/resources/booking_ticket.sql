@@ -1,4 +1,7 @@
 
+CREATE DATABASE booking_ticket;
+# USER booking_ticket;
+
 -- Table structure for table `booking`
 CREATE TABLE `booking` (
   `booking_id` int(11) NOT NULL,
